@@ -5,10 +5,11 @@ import Container from "../components/container";
 import CalculatorForm from "../components/calculatorForm";
 import CalculatorResults from "../components/calculatorResults";
 import Card from "../components/card";
+import { CalculatorResultsContextProvider } from "../context/CalculatorResultsContext";
 
 const Home: NextPage = () => {
     return (
-        <>
+        <CalculatorResultsContextProvider>
             <Head>
                 <title>
                     Interest Calculator - See how much you can make with
@@ -18,11 +19,6 @@ const Home: NextPage = () => {
                     name="description"
                     content="Compound Interest Calculator illustrates how much money can be made with the power of compound interest. Try out different deposits, top ups and interest rates and Interest Calculator will do the rest."
                 />
-                <meta charSet="utf-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-                />
             </Head>
             <Layout>
                 <div className="">
@@ -31,7 +27,7 @@ const Home: NextPage = () => {
                             className={`grid grid-cols-12 gap-8 min-h-[100vh]`}
                         >
                             <div className="col-span-12 lg:col-span-6 text-center lg:text-left self-center">
-                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-bold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
+                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-extrabold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
                                     Calculate compound interest for{" "}
                                     <span className="text-neon-blue">
                                         free!
@@ -56,7 +52,7 @@ const Home: NextPage = () => {
                     <Container>
                         <CalculatorResults />
                     </Container>
-                    <section className="bg-gray-100 my-6 py-12">
+                    <section className="bg-white my-6 py-12">
                         <Container className="px-4">
                             <div className="">
                                 <h3 className="font-bold text-xl mb-4">
@@ -110,7 +106,7 @@ const Home: NextPage = () => {
                     </Container>
                 </div>
             </Layout>
-        </>
+        </CalculatorResultsContextProvider>
     );
 };
 

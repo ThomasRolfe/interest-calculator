@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx}",
@@ -8,6 +10,12 @@ module.exports = {
         extend: {
             colors: {
                 "neon-blue": "#07D0E6",
+            },
+            fontFamily: {
+                sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+            },
+            screens: {
+                "3xl": "1600px",
             },
         },
     },

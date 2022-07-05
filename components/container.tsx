@@ -1,7 +1,7 @@
 const Container = (props: any) => {
     return (
         <div
-            className={`container mx-auto sm:px-6 lg:px-8 ${
+            className={`max-w-screen-2xl mx-auto sm:px-6 lg:px-8 ${
                 props.className ?? ""
             }`}
         >

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import interestCalculator from "../services/InterestCalculator";
+import { useCalculatorResults } from "../context/CalculatorResultsContext";
 
 const CalculatorForm = () => {
+    const { setResults } = useCalculatorResults();
     const [initialAmount, setInitialAmount] = useState<number | string | null>(
         ""
     );
@@ -12,7 +13,7 @@ const CalculatorForm = () => {
         ""
     );
     const [compoundingFrequency, setCompoundingFrequency] =
-        useState<string>("monthly");
+        useState<string>("yearly");
 
     const [interestRates, setInterestRates] = useState([0]);
 
@@ -44,7 +45,7 @@ const CalculatorForm = () => {
         const options = {
             method: "POST",
             body: JSON.stringify({
-                initialAmount: initialAmount,
+                initialAmount,
                 currency,
                 topUpAmount,
                 topUpFrequency,
@@ -58,11 +59,9 @@ const CalculatorForm = () => {
         };
 
         const response = await fetch("/api/calculator-form", options);
-        // let responseOk
+
         const result = await response.json();
-
-        const calcData = interestCalculator(result);
-
+        setResults(result);
         console.log(result);
         // send initial values to context store
         // send result to context store
@@ -75,13 +74,13 @@ const CalculatorForm = () => {
             className="max-w-lg mx-auto"
             onSubmit={handleSubmit}
         >
-            <div className="shadow overflow-hidden sm:rounded-md">
+            <div className="shadow-lg bg-white overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-8">
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="initial-amount"
-                                className="block text-sm font-medium text-green-900"
+                                className="block text-sm font-medium text-gray-700"
                             >
                                 Initial amount*
                             </label>
@@ -125,7 +124,7 @@ const CalculatorForm = () => {
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="top-up-amount"
-                                className="block text-sm font-medium text-green-900"
+                                className="block text-sm font-medium text-gray-700"
                             >
                                 Top-up amount
                             </label>
@@ -160,14 +159,14 @@ const CalculatorForm = () => {
                                 }}
                             >
                                 <option value="monthly">Monthly</option>
-                                <option value="annually">Annually</option>
+                                <option value="yearly">Yearly</option>
                             </select>
                         </div>
 
                         <div className="col-span-6">
                             <label
                                 htmlFor="years-saved-for"
-                                className="block text-sm font-medium text-green-900"
+                                className="block text-sm font-medium text-gray-700"
                             >
                                 Years saved for*
                             </label>
@@ -203,8 +202,8 @@ const CalculatorForm = () => {
                                     setCompoundingFrequency(e.target.value);
                                 }}
                             >
+                                <option value="yearly">Yearly</option>
                                 <option value="monthly">Monthly</option>
-                                <option value="annually">Annually</option>
                             </select>
                         </div>
                         <div className="col-span-6">
@@ -213,11 +212,11 @@ const CalculatorForm = () => {
                                     <>
                                         <label
                                             htmlFor={`interest-rate[${index}]`}
-                                            className={`block text-sm font-medium text-green-900 ${
+                                            className={`block text-sm font-medium text-gray-700 ${
                                                 index > 0 ? "hidden" : ""
                                             }`}
                                         >
-                                            Interest rate*
+                                            Interest rate (%)*
                                         </label>
                                         <div className="flex" key={index}>
                                             <input
@@ -238,6 +237,7 @@ const CalculatorForm = () => {
                                                 placeholder="Rate as a percentage eg. 8"
                                                 className="mt-1 focus:ring-neon-blue focus:border-neon-blue block grow shadow-sm sm:text-sm border border-gray-300 rounded-md"
                                             />
+                                            {/* Make individual components with show/hide logic */}
                                             {index === 0 ? (
                                                 <div
                                                     onClick={
@@ -276,7 +276,7 @@ const CalculatorForm = () => {
                         </div>
                     </div>
                 </div>
-                <div className="px-4 py-3 text-center sm:px-6">
+                <div className="px-4 py-3 text-center sm:px-6 bg-white">
                     <button
                         type="submit"
                         className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-gradient-to-br from-[#ff9966] to-[#ff5e62] hover:from-[#f6793b] hover:to-[#e13e42] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neon-blue"
