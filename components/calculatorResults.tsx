@@ -13,7 +13,7 @@ const CalculatorResults = () => {
     const { results } = useCalculatorResults();
 
     if (!results) {
-        return;
+        return <></>;
     }
 
     function classNames(...classes: string[]) {
