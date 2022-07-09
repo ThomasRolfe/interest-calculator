@@ -16,7 +16,7 @@ const CalculatorResults = () => {
         return;
     }
 
-    function classNames(...classes) {
+    function classNames(...classes: string[]) {
         return classes.filter(Boolean).join(" ");
     }
     // TODO: if a tabbed item is selected and then gets deleted from calc, the tabs go blank. Need to reset the selected value

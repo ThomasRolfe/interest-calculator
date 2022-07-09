@@ -52,7 +52,7 @@ const LineChart = ({ seriesList, seriesValues }) => {
             location: 0.5,
         });
 
-        seriesList.forEach((seriesItem) => {
+        seriesList.forEach((seriesItem: number) => {
             let pushedSeries = chart.series.push(
                 am5xy.LineSeries.new(root, {
                     name: `${seriesItem}%`,
