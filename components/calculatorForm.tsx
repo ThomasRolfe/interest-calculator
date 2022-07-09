@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
 
 const CalculatorForm = () => {
@@ -39,7 +39,7 @@ const CalculatorForm = () => {
         );
     };
 
-    const handleSubmit = async (event: SubmitEvent) => {
+    const handleSubmit = async (event: any) => {
         event.preventDefault();
 
         const options = {
