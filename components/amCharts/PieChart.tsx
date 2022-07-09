@@ -3,7 +3,7 @@ import * as am5percent from "@amcharts/amcharts5/percent";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { useLayoutEffect } from "react";
 
-const PieChart = ({ dataSeries }) => {
+const PieChart = ({ dataSeries }: { dataSeries: [] }) => {
     useLayoutEffect(() => {
         let root = am5.Root.new("interest-calculator-pie-chart");
 

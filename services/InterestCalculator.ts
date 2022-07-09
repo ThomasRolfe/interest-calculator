@@ -1,3 +1,4 @@
+import { StringValidation } from "zod";
 import {
     AnnualLog,
     CalculatorInputData,
@@ -44,7 +45,7 @@ const calculateSummary = (
 
 // TODO: simplify this
 const getTableData = (interestRateLogs: InterestRateLogs): {}[] => {
-    let data = {};
+    let data: { [key: string]: { [key: string]: {} } } = {};
 
     interestRateLogs.forEach((interestRateLog: InterestRateLog) => {
         interestRateLog.annualLogs.forEach((annualLog: AnnualLog) => {

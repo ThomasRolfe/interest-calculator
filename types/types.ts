@@ -21,8 +21,9 @@ export interface CalculatorInputData {
 
 export interface CalculatorOutputData {
     summary: SummaryData[];
-    tabularData: [];
+    tabularData: {}[];
     originalData: CalculatorInputData;
+    interestRateLogs: InterestRateLogs;
 }
 
 export interface SummaryData {

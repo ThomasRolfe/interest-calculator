@@ -3,7 +3,13 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { useLayoutEffect } from "react";
 
-const LineChart = ({ seriesList, seriesValues }) => {
+const LineChart = ({
+    seriesList,
+    seriesValues,
+}: {
+    seriesList: number[];
+    seriesValues: [];
+}) => {
     // Change to useEffect for first chart render
     // Use layout effect for updates to values only, currently whole chart is re rendering
     useLayoutEffect(() => {
