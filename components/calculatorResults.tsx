@@ -19,6 +19,7 @@ const CalculatorResults = () => {
     function classNames(...classes) {
         return classes.filter(Boolean).join(" ");
     }
+    // TODO: if a tabbed item is selected and then gets deleted from calc, the tabs go blank. Need to reset the selected value
 
     return (
         <div className="grid grid-cols-12 gap-8 ">
