@@ -8,7 +8,7 @@ const LineChart = ({
     seriesValues,
 }: {
     seriesList: number[];
-    seriesValues: [];
+    seriesValues: {}[];
 }) => {
     // Change to useEffect for first chart render
     // Use layout effect for updates to values only, currently whole chart is re rendering
