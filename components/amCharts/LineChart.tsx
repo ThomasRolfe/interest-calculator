@@ -45,8 +45,8 @@ const LineChart = ({
         );
 
         chart
-            .get("colors")
-            .set("colors", [
+            ?.get("colors")
+            ?.set("colors", [
                 am5.color("#311847"),
                 am5.color("#07D0E6"),
                 am5.color("#f6793b"),
@@ -104,7 +104,7 @@ const LineChart = ({
                 })
             );
 
-            tooltip.get("background").setAll({
+            tooltip?.get("background")?.setAll({
                 fill: am5.color(0xffffff),
             });
 
@@ -160,7 +160,7 @@ const LineChart = ({
         // Add cursor
         chart.set("cursor", am5xy.XYCursor.new(root, {}));
         let cursor = chart.get("cursor");
-        cursor.lineY.setAll({
+        cursor?.lineY?.setAll({
             visible: false,
         });
         // chart.cursor.maxTooltipDistance = -1;

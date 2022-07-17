@@ -90,10 +90,11 @@ const About: NextPage = () => {
                                 <strong>n x (1 + i)</strong>
                             </div>
                             <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto">
-                                Where "n" can be considered the amount in
-                                savings to be compounded and "i" is the gross
-                                interest rate as a decimal. For instance with a
-                                deposit of £100 saved at 5% interest, we get{" "}
+                                Where &quot;n&quot; can be considered the amount
+                                in savings to be compounded and &quot;i&quot; is
+                                the gross interest rate as a decimal. For
+                                instance with a deposit of £100 saved at 5%
+                                interest, we get{" "}
                                 <strong>100 x 1.05 = £105</strong>.
                             </p>
                             <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto">
@@ -108,12 +109,13 @@ const About: NextPage = () => {
                                 <strong>n x (1 + i/f)</strong>
                             </div>
                             <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto">
-                                Where "n" is the amount in savings, "i" is the
-                                gross interest rate and "f" is the frequency of
-                                compounds per year, with monthly being a
-                                frequency of 12 per year. The savings are now
-                                multiplied by 1.004167... 12 times which
-                                evaluates as follows (figures rounded):
+                                Where &quot;n&quot; is the amount in savings,
+                                &quot;i&quot; is the gross interest rate and
+                                &quot;f&quot; is the frequency of compounds per
+                                year, with monthly being a frequency of 12 per
+                                year. The savings are now multiplied by
+                                1.004167... 12 times which evaluates as follows
+                                (figures rounded):
                             </p>
                             <div className="col-sm-12 col-lg-4 offset-lg-4">
                                 <ul className="list-none font-semibold">
@@ -148,9 +150,9 @@ const About: NextPage = () => {
                                 </strong>
                             </div>
                             <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto">
-                                With "i" being the gross interest rate as a
-                                decimal (0.05) and "f" being the frequency of
-                                compounds in a year (12).
+                                With &quot;i&quot; being the gross interest rate
+                                as a decimal (0.05) and &quot;f&quot; being the
+                                frequency of compounds in a year (12).
                             </p>
                             <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto">
                                 This evaluates to 5.116% AER even though the
