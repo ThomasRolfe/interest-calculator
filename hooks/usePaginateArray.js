@@ -12,6 +12,7 @@ export default function usePaginateArray(data, pageLength) {
     useEffect(() => {
         setTotalPages(Math.ceil(data.length / pageLength));
         setPaginatedArray(getPaginatedResults);
+        setCurrentPage(1);
     }, [data, pageLength, getPaginatedResults]);
 
     useEffect(() => {

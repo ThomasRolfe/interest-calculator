@@ -13,7 +13,7 @@ function classNames(...classes: string[]) {
 export const StatCard = (props: StatProps) => {
     return (
         <div key={props.title} className="px-4 py-5 sm:p-6">
-            <dt className="text-base font-normal text-[#f6793b]">
+            <dt className="text-base font-normal text-brand-orange">
                 {props.title}
             </dt>
             <dd className="mt-1 flex justify-between items-baseline md:block xl:flex">

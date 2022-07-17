@@ -1,5 +1,6 @@
-import { FormEventHandler, useState } from "react";
+import { useState } from "react";
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
+import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/outline";
 
 const CalculatorForm = () => {
     const { setResults } = useCalculatorResults();
@@ -59,12 +60,8 @@ const CalculatorForm = () => {
         };
 
         const response = await fetch("/api/calculator-form", options);
-
         const result = await response.json();
         setResults(result);
-        console.log(result);
-        // send initial values to context store
-        // send result to context store
     };
 
     return (
@@ -74,7 +71,7 @@ const CalculatorForm = () => {
             className="max-w-lg mx-auto"
             onSubmit={handleSubmit}
         >
-            <div className="shadow-lg bg-white overflow-hidden sm:rounded-md">
+            <div className="shadow-lg bg-white overflow-hidden sm:rounded-md font-sansalt">
                 <div className="px-4 py-5 bg-white sm:p-6">
                     <div className="grid grid-cols-6 gap-8">
                         <div className="col-span-6 sm:col-span-3">
@@ -86,11 +83,13 @@ const CalculatorForm = () => {
                             </label>
                             <input
                                 type="number"
-                                step="1"
+                                step="0.01"
+                                min="0.01"
+                                max="100_000_000"
                                 required={true}
                                 name="initial-amount"
                                 id="initial-amount"
-                                className="mt-1 focus:ring-neon-blue focus:border-neon-blue block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
                                 value={initialAmount!}
                                 onChange={(e) =>
                                     setInitialAmount(Number(e.target.value))
@@ -109,7 +108,7 @@ const CalculatorForm = () => {
                                 id="currency"
                                 name="currency"
                                 autoComplete="currency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-neon-blue focus:border-neon-blue sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={currency}
                                 onChange={(e) => {
                                     setCurrency(e.target.value);
@@ -134,7 +133,7 @@ const CalculatorForm = () => {
                                 min="0"
                                 name="top-up-amount"
                                 id="top-up-amount"
-                                className="mt-1 focus:ring-neon-blue focus:border-neon-blue block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
                                 value={topUpAmount!}
                                 onChange={(e) => {
                                     setTopUpAmount(e.target.value);
@@ -152,7 +151,7 @@ const CalculatorForm = () => {
                             <select
                                 id="top-up-frequency"
                                 name="top-up-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-neon-blue focus:border-neon-blue sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={topUpFrequency}
                                 onChange={(e) => {
                                     setTopUpFrequency(e.target.value);
@@ -182,7 +181,7 @@ const CalculatorForm = () => {
                                 onChange={(e) => {
                                     setYearsSavedFor(Number(e.target.value));
                                 }}
-                                className="mt-1 focus:ring-neon-blue focus:border-neon-blue block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
                             />
                         </div>
 
@@ -196,7 +195,7 @@ const CalculatorForm = () => {
                             <select
                                 id="compounding-frequency"
                                 name="compounding-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-neon-blue focus:border-neon-blue sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={compoundingFrequency}
                                 onChange={(e) => {
                                     setCompoundingFrequency(e.target.value);
@@ -235,7 +234,7 @@ const CalculatorForm = () => {
                                                     );
                                                 }}
                                                 placeholder="Rate as a percentage eg. 8"
-                                                className="mt-1 focus:ring-neon-blue focus:border-neon-blue block grow shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block grow shadow-sm sm:text-sm border border-gray-300 rounded-md"
                                             />
                                             {/* Make individual components with show/hide logic */}
                                             {index === 0 ? (
@@ -243,13 +242,17 @@ const CalculatorForm = () => {
                                                     onClick={
                                                         handleAddInterestRate
                                                     }
-                                                    className="w-20 flex items-center align-middle"
+                                                    className="w-12 flex items-center align-middle"
                                                 >
                                                     <button
                                                         type="button"
-                                                        className="mx-auto"
+                                                        className="ml-auto"
+                                                        title="Add interest rate"
                                                     >
-                                                        Add
+                                                        <PlusCircleIcon
+                                                            className="h-5 w-5 text-brand-blue"
+                                                            aria-hidden="true"
+                                                        />
                                                     </button>
                                                 </div>
                                             ) : (
@@ -259,13 +262,17 @@ const CalculatorForm = () => {
                                                             index
                                                         );
                                                     }}
-                                                    className="w-20 flex items-center align-middle"
+                                                    className="w-12 flex items-center align-middle"
                                                 >
                                                     <button
                                                         type="button"
-                                                        className="mx-auto"
+                                                        className="ml-auto focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50"
+                                                        title="Remove interest rate"
                                                     >
-                                                        Del
+                                                        <MinusCircleIcon
+                                                            className="h-5 w-5 text-red-400 "
+                                                            aria-hidden="true"
+                                                        />
                                                     </button>
                                                 </div>
                                             )}
@@ -279,7 +286,7 @@ const CalculatorForm = () => {
                 <div className="px-4 py-3 text-center sm:px-6 bg-white">
                     <button
                         type="submit"
-                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-gradient-to-br from-[#ff9966] to-[#ff5e62] hover:from-[#f6793b] hover:to-[#e13e42] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neon-blue"
+                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-brand-blue hover:bg-blue-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
                     >
                         Calculate
                     </button>

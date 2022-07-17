@@ -11,10 +11,14 @@ const Layout = (props: any) => (
                 content="width=device-width, initial-scale=1, shrink-to-fit=no"
             />
             <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+            <link
+                rel="stylesheet"
+                href="https://use.typekit.net/hfj5pix.css"
+            ></link>
         </Head>
-        <div>
+        <div className="background-gradient">
             <Header />
-            <main className="bg-[#fff7f6]">{props.children}</main>
+            <main className="">{props.children}</main>
             <Footer />
         </div>
     </>

@@ -4,8 +4,8 @@ import Head from "next/head";
 import Container from "../components/container";
 import CalculatorForm from "../components/calculatorForm";
 import CalculatorResults from "../components/calculatorResults";
-import Card from "../components/card";
 import { CalculatorResultsContextProvider } from "../context/CalculatorResultsContext";
+import Link from "next/link";
 
 const Home: NextPage = () => {
     return (
@@ -21,16 +21,16 @@ const Home: NextPage = () => {
                 />
             </Head>
             <Layout>
-                <div className="">
+                <div className="  lg:-mt-16">
                     <Container className="">
                         <div
                             className={`grid grid-cols-12 gap-8 min-h-[100vh]`}
                         >
                             <div className="col-span-12 lg:col-span-6 text-center lg:text-left self-center">
-                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-extrabold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
-                                    Calculate compound interest for{" "}
-                                    <span className="text-neon-blue">
-                                        free!
+                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-semibold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
+                                    Calculate & compare{" "}
+                                    <span className="underline decoration-brand-orange">
+                                        compound interest
                                     </span>
                                 </h1>
                                 <p className="mt-3 text-base text-slate-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
@@ -52,13 +52,13 @@ const Home: NextPage = () => {
                     <Container>
                         <CalculatorResults />
                     </Container>
-                    <section className="bg-white my-6 py-12">
+                    <section className="bg-white mt-6 py-12">
                         <Container className="px-4">
-                            <div className="">
-                                <h3 className="font-bold text-xl mb-4">
+                            <div className="prose prose-xl mx-auto mt-6">
+                                <h2 className="font-bold">
                                     How Compound Interest Works
-                                </h3>
-                                <p className="mb-4">
+                                </h2>
+                                <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto ">
                                     Compound interest is the process of earning
                                     interest on an amount of money cumulatively
                                     over time. Interest is calculated as a
@@ -67,26 +67,27 @@ const Home: NextPage = () => {
                                     once you receive a payment of interest, you
                                     will earn more on the next interest payment.
                                 </p>
-                                <p className="mb-4">
+                                <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto ">
                                     It is this compounding that Albert Einstein
                                     famously called &quot;the 8th wonder of the
                                     world&quot;. Once you can utilise it in your
                                     personal savings and make your money work
                                     for you, you will see why!
                                 </p>
-                                <h3 className="font-bold text-xl mb-4">
+                                <h2 className="font-bold">
                                     How is compound interest calculated?
-                                </h3>
-                                <p className="mb-4">
+                                </h2>
+                                <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto ">
                                     Compound interest can be calculated manually
                                     year by year or by using a formula. Visit
-                                    the about page to see how the calculation is
-                                    made or simply use the calculator above.
+                                    the <Link href="/about">about page</Link> to
+                                    see how the calculation is made or simply
+                                    use the calculator above.
                                 </p>
-                                <h3 className="font-bold text-xl mb-4">
+                                <h2 className="font-bold">
                                     Which compound interest rate is better?
-                                </h3>
-                                <p className="mb-4">
+                                </h2>
+                                <p className="mt-6 prose prose-indigo prose-xl text-gray-500 mx-auto ">
                                     You may find different interest rates quoted
                                     in different ways and with varying compound
                                     intervals. The main figure to look for is
@@ -100,10 +101,6 @@ const Home: NextPage = () => {
                             </div>
                         </Container>
                     </section>
-
-                    <Container>
-                        <Card>google ad</Card>
-                    </Container>
                 </div>
             </Layout>
         </CalculatorResultsContextProvider>

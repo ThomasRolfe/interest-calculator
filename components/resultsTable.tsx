@@ -1,5 +1,6 @@
 import usePaginateArray from "../hooks/usePaginateArray";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import { useEffect } from "react";
 
 const ResultsTable = ({ results }) => {
     const {
@@ -19,7 +20,7 @@ const ResultsTable = ({ results }) => {
 
     return (
         <>
-            <table className="min-w-full divide-y divide-gray-300">
+            <table className="min-w-full divide-y divide-gray-300 font-sansalt">
                 <thead className="bg-gray-50">
                     <tr>
                         <th
@@ -78,7 +79,7 @@ const ResultsTable = ({ results }) => {
                     ))}
                 </tbody>
             </table>
-            <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 font-sansalt">
                 <div className="flex-1 flex justify-between sm:hidden">
                     <button
                         onClick={setPrevPage}
@@ -96,7 +97,7 @@ const ResultsTable = ({ results }) => {
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-end">
                     <div>
                         <nav
-                            className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+                            className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px "
                             aria-label="Pagination"
                         >
                             <button
