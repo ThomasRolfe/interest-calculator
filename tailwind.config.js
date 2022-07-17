@@ -10,6 +10,7 @@ module.exports = {
         extend: {
             colors: {
                 "neon-blue": "#07D0E6",
+                "brand-purple": "#311847",
             },
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],

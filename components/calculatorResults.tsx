@@ -5,6 +5,7 @@ import { useCalculatorResults } from "../context/CalculatorResultsContext";
 import { Tab } from "@headlessui/react";
 import { SummaryPanel } from "./SummaryPanel";
 import dynamic from "next/dynamic";
+import ResultsTable from "./resultsTable";
 
 const PieChart = dynamic(() => import("./amCharts/PieChart"), { ssr: false });
 const LineChart = dynamic(() => import("./amCharts/LineChart"), { ssr: false });
@@ -85,7 +86,7 @@ const CalculatorResults = () => {
                 </div>
             </Card>
             <Card className="col-span-12 lg:col-span-12 sm:rounded-md shadow-lg">
-                table
+                <ResultsTable results={results} />
             </Card>
         </div>
     );
