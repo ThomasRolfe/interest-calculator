@@ -2,7 +2,7 @@ import usePaginateArray from "../hooks/usePaginateArray";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { useEffect } from "react";
 
-const ResultsTable = ({ results }) => {
+const ResultsTable = ({ results }: any) => {
     const {
         setTargetPage,
         setNextPage,
@@ -30,7 +30,7 @@ const ResultsTable = ({ results }) => {
                             Year
                         </th>
                         {results.originalData.interestRates.map(
-                            (interestRate, index) => (
+                            (interestRate: number, index: number) => (
                                 <th
                                     key={index}
                                     scope="col"
@@ -43,13 +43,13 @@ const ResultsTable = ({ results }) => {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                    {paginatedArray.map((tableRow) => (
+                    {paginatedArray.map((tableRow: any) => (
                         <tr key={tableRow.year} className="hover:bg-slate-200">
                             <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-brand-purple font-bold sm:pl-6">
                                 {tableRow.year}
                             </td>
                             {results.originalData.interestRates.map(
-                                (interestRate, index) => (
+                                (interestRate: number, index: number) => (
                                     <td
                                         key={index}
                                         className="whitespace-nowrap px-2 py-2 text-sm text-brand-purple"
