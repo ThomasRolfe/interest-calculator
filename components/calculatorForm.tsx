@@ -94,7 +94,7 @@ const CalculatorForm = () => {
             className="max-w-lg mx-auto"
             onSubmit={handleSubmit}
         >
-            <div className=" backdrop-blur-lg backdrop-brightness-105 shadow-md shadow-slate-400/50 bg-white/70 overflow-hidden sm:rounded-md font-sansalt">
+            <div className=" backdrop-blur-lg backdrop-brightness-100 shadow-xl shadow-cyan-800/20 bg-white/50 overflow-hidden sm:rounded-md font-sansalt">
                 <div className="px-4 py-5 sm:p-6">
                     <div className="grid grid-cols-6 gap-8">
                         <div className="col-span-6 sm:col-span-3">
@@ -305,7 +305,7 @@ const CalculatorForm = () => {
                                                         title="Add interest rate"
                                                     >
                                                         <PlusCircleIcon
-                                                            className="h-5 w-5 text-brand-blue"
+                                                            className="h-5 w-5 text-cyan-500"
                                                             aria-hidden="true"
                                                         />
                                                     </button>
@@ -325,7 +325,7 @@ const CalculatorForm = () => {
                                                         title="Remove interest rate"
                                                     >
                                                         <MinusCircleIcon
-                                                            className="h-5 w-5 text-red-400 "
+                                                            className="h-5 w-5 text-red-600 "
                                                             aria-hidden="true"
                                                         />
                                                     </button>
@@ -338,10 +338,10 @@ const CalculatorForm = () => {
                         </div>
                     </div>
                 </div>
-                <div className="px-4 py-3 text-center sm:px-6 bg-white">
+                <div className="px-4 py-3 text-center sm:px-6 backdrop-blur-lg backdrop-brightness-100 shadow-md shadow-slate-400/50 bg-white/50 ">
                     <button
                         type="submit"
-                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-brand-blue hover:bg-blue-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
+                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-sky-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
                     >
                         Calculate
                     </button>
