@@ -23,7 +23,7 @@ module.exports = {
                 "brand-red": "#ec2227",
             },
             fontFamily: {
-                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                sans: ["Inter var", ...defaultTheme.fontFamily.sans],
                 sansalt: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
             screens: {

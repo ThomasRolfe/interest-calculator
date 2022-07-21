@@ -20,7 +20,7 @@ const currencies = [
     },
 ];
 
-const CalculatorForm = ({ scrollToRef }: any) => {
+const CalculatorForm = () => {
     const { setResults } = useCalculatorResults();
     const [initialAmount, setInitialAmount] = useState<number | string | null>(
         ""
@@ -94,8 +94,8 @@ const CalculatorForm = ({ scrollToRef }: any) => {
             className="max-w-lg mx-auto"
             onSubmit={handleSubmit}
         >
-            <div className="shadow-lg bg-white overflow-hidden sm:rounded-md font-sansalt">
-                <div className="px-4 py-5 bg-white sm:p-6">
+            <div className=" backdrop-blur-lg backdrop-brightness-105 shadow-md shadow-slate-400/50 bg-white/70 overflow-hidden sm:rounded-md font-sansalt">
+                <div className="px-4 py-5 sm:p-6">
                     <div className="grid grid-cols-6 gap-8">
                         <div className="col-span-6 sm:col-span-3">
                             <label
@@ -204,8 +204,12 @@ const CalculatorForm = ({ scrollToRef }: any) => {
                                     setTopUpFrequency(e.target.value);
                                 }}
                             >
-                                <option value="monthly">Monthly</option>
-                                <option value="yearly">Yearly</option>
+                                <option key={1} value="monthly">
+                                    Monthly
+                                </option>
+                                <option key={2} value="yearly">
+                                    Yearly
+                                </option>
                             </select>
                         </div>
 
@@ -248,8 +252,12 @@ const CalculatorForm = ({ scrollToRef }: any) => {
                                     setCompoundingFrequency(e.target.value);
                                 }}
                             >
-                                <option value="yearly">Yearly</option>
-                                <option value="monthly">Monthly</option>
+                                <option key={1} value="yearly">
+                                    Yearly
+                                </option>
+                                <option key={2} value="monthly">
+                                    Monthly
+                                </option>
                             </select>
                         </div>
                         <div className="col-span-6">

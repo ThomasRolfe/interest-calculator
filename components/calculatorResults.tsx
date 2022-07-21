@@ -30,7 +30,7 @@ const CalculatorResults = () => {
 
     return (
         <div className="grid grid-cols-12 gap-8 mt-12 md:mt-0">
-            <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
+            <Card className="col-span-12 xl:col-span-6 sm:rounded-md ">
                 <Tab.Group
                     selectedIndex={selectedIndex}
                     onChange={setSelectedIndex}
@@ -86,7 +86,7 @@ const CalculatorResults = () => {
                     </Tab.Panels>
                 </Tab.Group>
             </Card>
-            <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
+            <Card className="col-span-12 xl:col-span-6 sm:rounded-md ">
                 <div className="p-3 sm:p-5 h-[500px] min-h-full">
                     <LineChart
                         seriesList={results.originalData.interestRates}
@@ -95,7 +95,7 @@ const CalculatorResults = () => {
                     />
                 </div>
             </Card>
-            <Card className="col-span-12 lg:col-span-12 sm:rounded-md shadow-lg">
+            <Card className="col-span-12 lg:col-span-12 sm:rounded-md ">
                 <ResultsTable results={results} />
             </Card>
         </div>

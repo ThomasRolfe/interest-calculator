@@ -4,7 +4,6 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import logoFull from "../public/logo-full.svg";
 import logoCompact from "../public/logo-compact.svg";
 
 const Header = (props: any) => {
@@ -20,11 +19,16 @@ const Header = (props: any) => {
                                     <div className="flex items-center w-full justify-between">
                                         <div className="flex-shrink-0">
                                             <div className="flex h-8">
-                                                <Image
-                                                    src={logoCompact}
-                                                    alt="Interest Calculator logo"
-                                                    className="h-1/2"
-                                                />
+                                                <Link href="/">
+                                                    <a className="hover:cursor-pointer">
+                                                        <Image
+                                                            src={logoCompact}
+                                                            alt="Interest Calculator logo"
+                                                            height="30"
+                                                            layout="intrinsic"
+                                                        />
+                                                    </a>
+                                                </Link>
                                             </div>
                                         </div>
                                         <div className="hidden sm:block sm:ml-6">
@@ -32,10 +36,7 @@ const Header = (props: any) => {
                                                 <Link href="/">
                                                     <a
                                                         className={
-                                                            router.pathname ===
-                                                            "/"
-                                                                ? "text-slate-900 underline underline-offset-4 decoration-2 decoration-brand-orange"
-                                                                : "text-slate-600 hover:text-slate-900 "
+                                                            "text-slate-900 hover:text-slate-600 "
                                                         }
                                                     >
                                                         Home
@@ -44,10 +45,7 @@ const Header = (props: any) => {
                                                 <Link href="/about">
                                                     <a
                                                         className={
-                                                            router.pathname ===
-                                                            "/about"
-                                                                ? "text-slate-900 underline underline-offset-4 decoration-2 decoration-brand-orange"
-                                                                : "text-slate-600 hover:text-slate-900 "
+                                                            "text-slate-900 hover:text-slate-600 "
                                                         }
                                                     >
                                                         About

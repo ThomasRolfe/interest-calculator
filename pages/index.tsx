@@ -23,9 +23,9 @@ const Home: NextPage = () => {
                             className={`grid grid-cols-12 gap-8 min-h-[100vh]`}
                         >
                             <div className="col-span-12 lg:col-span-6 text-center lg:text-left self-center">
-                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-semibold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
+                                <h1 className="my-4 mb-12 text-4xl tracking-tight font-extrabold font-sans text-slate-900 sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-7xl">
                                     Calculate & compare{" "}
-                                    <span className="underline decoration-brand-orange">
+                                    <span className="text-black">
                                         compound interest
                                     </span>
                                 </h1>

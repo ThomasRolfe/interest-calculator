@@ -1,6 +1,8 @@
 const Card = (props: any) => {
     return (
-        <div className={`bg-white overflow-hidden shadow ${props.className} `}>
+        <div
+            className={`bg-white overflow-hidden shadow-md shadow-slate-400/50 ${props.className} `}
+        >
             {props.children}
         </div>
     );
