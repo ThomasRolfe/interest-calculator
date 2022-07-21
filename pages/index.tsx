@@ -50,9 +50,11 @@ const Home: NextPage = () => {
                         </div>
                     </Container>
                     <Container>
-                        <CalculatorResults />
+                        <div>
+                            <CalculatorResults />
+                        </div>
                     </Container>
-                    <section className="bg-white mt-6 py-12">
+                    <section className="bg-white mt-12 py-12">
                         <Container className="px-4">
                             <div className="prose prose-xl mx-auto mt-6">
                                 <h2 className="font-bold">

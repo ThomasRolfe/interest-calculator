@@ -78,7 +78,7 @@ const CalculatorResults = () => {
                 </Tab.Group>
             </Card>
             <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
-                <div className="p-3 sm:p-5 h-96 min-h-full">
+                <div className="p-3 sm:p-5 h-[500px] min-h-full">
                     <LineChart
                         seriesList={results.originalData.interestRates}
                         seriesValues={results.tabularData}

@@ -23,6 +23,7 @@ export const StatCard = (props: StatProps) => {
                         : Intl.NumberFormat("en-GB", {
                               style: "currency",
                               currency: props.currency,
+                              currencyDisplay: "narrowSymbol",
                               notation: "compact",
                               maximumFractionDigits: 2,
                           }).format(props.value)}

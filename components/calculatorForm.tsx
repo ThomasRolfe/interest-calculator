@@ -2,7 +2,25 @@ import { useState } from "react";
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/outline";
 
-const CalculatorForm = () => {
+const currencies = [
+    {
+        value: "GBP",
+        symbol: "£",
+        label: "£ GBP",
+    },
+    {
+        value: "EUR",
+        symbol: "€",
+        label: "€ EUR",
+    },
+    {
+        value: "USD",
+        symbol: "$",
+        label: "$ USD",
+    },
+];
+
+const CalculatorForm = ({ scrollToRef }: any) => {
     const { setResults } = useCalculatorResults();
     const [initialAmount, setInitialAmount] = useState<number | string | null>(
         ""
@@ -67,6 +85,7 @@ const CalculatorForm = () => {
         const response = await fetch("/api/calculator-form", options);
         const result = await response.json();
         setResults(result);
+        scrollToRef();
     };
 
     return (
@@ -86,20 +105,31 @@ const CalculatorForm = () => {
                             >
                                 Initial amount*
                             </label>
-                            <input
-                                type="number"
-                                step="0.01"
-                                min="0.01"
-                                max="100_000_000"
-                                required={true}
-                                name="initial-amount"
-                                id="initial-amount"
-                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
-                                value={initialAmount!}
-                                onChange={(e) =>
-                                    setInitialAmount(Number(e.target.value))
-                                }
-                            />
+                            <div className="mt-1 flex">
+                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    {
+                                        currencies.find((constcurrency) => {
+                                            return (
+                                                constcurrency.value === currency
+                                            );
+                                        })?.symbol
+                                    }
+                                </span>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0.01"
+                                    max="100_000_000"
+                                    required={true}
+                                    name="initial-amount"
+                                    id="initial-amount"
+                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-tr-md rounded-br-md"
+                                    value={initialAmount!}
+                                    onChange={(e) =>
+                                        setInitialAmount(Number(e.target.value))
+                                    }
+                                />
+                            </div>
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
@@ -119,9 +149,11 @@ const CalculatorForm = () => {
                                     setCurrency(e.target.value);
                                 }}
                             >
-                                <option value={`GBP`}>£ (GBP)</option>
-                                <option value={`USD`}>$ (USD)</option>
-                                <option value={`EUR`}>€ (EUR)</option>
+                                {currencies.map((currency, index) => (
+                                    <option key={index} value={currency.value}>
+                                        {currency.label}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 
@@ -132,18 +164,29 @@ const CalculatorForm = () => {
                             >
                                 Top-up amount
                             </label>
-                            <input
-                                type="number"
-                                step="1"
-                                min="0"
-                                name="top-up-amount"
-                                id="top-up-amount"
-                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
-                                value={topUpAmount!}
-                                onChange={(e) => {
-                                    setTopUpAmount(e.target.value);
-                                }}
-                            />
+                            <div className="mt-1 flex">
+                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    {
+                                        currencies.find((constcurrency) => {
+                                            return (
+                                                constcurrency.value === currency
+                                            );
+                                        })?.symbol
+                                    }
+                                </span>
+                                <input
+                                    type="number"
+                                    step="1"
+                                    min="0"
+                                    name="top-up-amount"
+                                    id="top-up-amount"
+                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-tr-md rounded-br-md"
+                                    value={topUpAmount!}
+                                    onChange={(e) => {
+                                        setTopUpAmount(e.target.value);
+                                    }}
+                                />
+                            </div>
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">

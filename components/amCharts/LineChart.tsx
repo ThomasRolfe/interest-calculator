@@ -11,7 +11,7 @@ const LineChart = ({
 }: {
     seriesList: number[];
     seriesValues: {}[];
-    currency: "";
+    currency: string;
 }) => {
     // Change to useEffect for first chart render
     // Use layout effect for updates to values only, currently whole chart is re rendering
@@ -33,6 +33,7 @@ const LineChart = ({
         root.numberFormatter.set("numberFormat", {
             style: "currency",
             currency: currency,
+            currencyDisplay: "narrowSymbol",
             notation: "compact",
             maximumFractionDigits: 2,
         });
@@ -93,7 +94,7 @@ const LineChart = ({
                     numberFormatter: labelFormatter,
                     tooltip: am5.Tooltip.new(root, {
                         pointerOrientation: "horizontal",
-                        labelText: `{name}: {valueY.formatNumber()}`,
+                        labelText: `Year {categoryX} | {name}     [bold]{valueY.formatNumber()}[/] `,
                     }),
                 })
             );
