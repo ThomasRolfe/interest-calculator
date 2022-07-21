@@ -16,9 +16,14 @@ const CalculatorForm = () => {
     const [compoundingFrequency, setCompoundingFrequency] =
         useState<string>("yearly");
 
-    const [interestRates, setInterestRates] = useState([0]);
+    const [interestRates, setInterestRates] = useState<(string | number)[]>([
+        "",
+    ]);
 
-    const handleInterestRateChange = (index: number, newValue: number) => {
+    const handleInterestRateChange = (
+        index: number,
+        newValue: number | string
+    ) => {
         setInterestRates(
             interestRates.map((rate, mapIndex) => {
                 return mapIndex === index ? newValue : rate;
@@ -28,7 +33,7 @@ const CalculatorForm = () => {
 
     const handleAddInterestRate = () => {
         if (interestRates.length < 5) {
-            setInterestRates([...interestRates, 0]);
+            setInterestRates([...interestRates, ""]);
         }
     };
 

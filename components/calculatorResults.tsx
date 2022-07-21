@@ -23,8 +23,8 @@ const CalculatorResults = () => {
     // TODO: if a tabbed item is selected and then gets deleted from calc, the tabs go blank. Need to reset the selected value
 
     return (
-        <div className="grid grid-cols-12 gap-8 ">
-            <Card className="col-span-12 lg:col-span-6 sm:rounded-md shadow-lg">
+        <div className="grid grid-cols-12 gap-8 mt-12 md:mt-0">
+            <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
                 <Tab.Group>
                     <Tab.List className="flex border-b border-gray-200">
                         {results.summary.map((interestRateSummary, index) => {
@@ -77,11 +77,12 @@ const CalculatorResults = () => {
                     </Tab.Panels>
                 </Tab.Group>
             </Card>
-            <Card className="col-span-12 lg:col-span-6 sm:rounded-md shadow-lg">
-                <div className="sm:p-8 h-96 min-h-full">
+            <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
+                <div className="p-3 sm:p-5 h-96 min-h-full">
                     <LineChart
                         seriesList={results.originalData.interestRates}
                         seriesValues={results.tabularData}
+                        currency={results.originalData.currency}
                     />
                 </div>
             </Card>

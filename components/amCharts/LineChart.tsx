@@ -1,14 +1,17 @@
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+
 import { useLayoutEffect } from "react";
 
 const LineChart = ({
     seriesList,
     seriesValues,
+    currency,
 }: {
     seriesList: number[];
     seriesValues: {}[];
+    currency: "";
 }) => {
     // Change to useEffect for first chart render
     // Use layout effect for updates to values only, currently whole chart is re rendering
@@ -17,16 +20,7 @@ const LineChart = ({
         root.setThemes([am5themes_Animated.new(root)]);
 
         let labelFormatter = am5.NumberFormatter.new(root, {
-            bigNumberPrefixes: [
-                { number: 1e3, suffix: "K" },
-                { number: 1e6, suffix: "M" },
-                { number: 1e9, suffix: "B" },
-                { number: 1e12, suffix: "T" },
-            ],
-        });
-
-        root.numberFormatter.setAll({
-            // numberFormat: "#,###.00",
+            numberFormat: "#,###.00",
             bigNumberPrefixes: [
                 { number: 1e3, suffix: "K" },
                 { number: 1e6, suffix: "M" },
@@ -36,11 +30,17 @@ const LineChart = ({
             numericFields: ["valueY"],
         });
 
+        root.numberFormatter.set("numberFormat", {
+            style: "currency",
+            currency: currency,
+            notation: "compact",
+            maximumFractionDigits: 2,
+        });
+
         let chart = root.container.children.push(
             am5xy.XYChart.new(root, {
                 panY: false,
                 layout: root.verticalLayout,
-                maxTooltipDistance: -1,
             })
         );
 
@@ -67,6 +67,7 @@ const LineChart = ({
         // Create X-Axis
         let xAxis = chart.xAxes.push(
             am5xy.CategoryAxis.new(root, {
+                numberFormatter: labelFormatter,
                 renderer: am5xy.AxisRendererX.new(root, {
                     minGridDistance: 30,
                 }),
@@ -90,39 +91,12 @@ const LineChart = ({
                     valueYField: `${String(seriesItem)}_percent`,
                     categoryXField: "year",
                     numberFormatter: labelFormatter,
+                    tooltip: am5.Tooltip.new(root, {
+                        pointerOrientation: "horizontal",
+                        labelText: `{name}: {valueY.formatNumber()}`,
+                    }),
                 })
             );
-
-            let tooltip = pushedSeries.set(
-                "tooltip",
-                am5.Tooltip.new(root, {
-                    getFillFromSprite: false,
-                    getStrokeFromSprite: true,
-                    autoTextColor: false,
-                    pointerOrientation: "horizontal",
-                    numberFormatter: labelFormatter,
-                })
-            );
-
-            tooltip?.get("background")?.setAll({
-                fill: am5.color(0xffffff),
-            });
-
-            tooltip.label.setAll({
-                text: "[bold]Year {categoryX}[/]",
-                fill: am5.color("#311847"),
-            });
-
-            tooltip.label.adapters.add("text", function (text, target) {
-                chart.series.each(function (series) {
-                    text += `\n[${series.get(
-                        "stroke"
-                    )}.toString()]●[/] [bold width:100px]${series.get(
-                        "name"
-                    )}[/] {${series.get("valueYField")}}`;
-                });
-                return text;
-            });
 
             pushedSeries.data.setAll(seriesValues);
 
@@ -147,28 +121,17 @@ const LineChart = ({
 
         xAxis.data.setAll(seriesValues);
 
-        // Add legend
-        let legend = chart.children.push(
-            am5.Legend.new(root, {
-                x: am5.percent(50),
-                y: am5.percent(95),
-                centerX: am5.percent(50),
-            })
-        );
-        legend.data.setAll(chart.series.values);
-
         // Add cursor
         chart.set("cursor", am5xy.XYCursor.new(root, {}));
         let cursor = chart.get("cursor");
         cursor?.lineY?.setAll({
             visible: false,
         });
-        // chart.cursor.maxTooltipDistance = -1;
 
         return () => {
             root.dispose();
         };
-    }, [seriesList, seriesValues]);
+    }, [seriesList, seriesValues, currency]);
     return (
         <div
             id="interest-calculator-line-chart"
