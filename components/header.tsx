@@ -9,12 +9,14 @@ import logoCompact from "../public/logo-compact.svg";
 const Header = (props: any) => {
     const router = useRouter();
     return (
-        <div className={`${props.className} `}>
+        <div
+            className={`${props.className} backdrop-blur-lg backdrop-brightness-100   md:bg-white/70`}
+        >
             <Container>
                 <Disclosure as="nav" className="">
                     {({ open }) => (
                         <>
-                            <div className="px-4 sm:px-6 md:px-0">
+                            <div className="px-4 sm:px-6 md:px-0 ">
                                 <div className="flex items-center justify-between h-16">
                                     <div className="flex items-center w-full justify-between">
                                         <div className="flex-shrink-0">
@@ -36,7 +38,7 @@ const Header = (props: any) => {
                                                 <Link href="/">
                                                     <a
                                                         className={
-                                                            "text-slate-900 hover:text-slate-600 "
+                                                            "text-slate-900 hover:text-slate-600 hover:underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-cyan-500 transition duration-500"
                                                         }
                                                     >
                                                         Home
@@ -45,7 +47,7 @@ const Header = (props: any) => {
                                                 <Link href="/about">
                                                     <a
                                                         className={
-                                                            "text-slate-900 hover:text-slate-600 "
+                                                            "text-slate-900 hover:text-slate-600 hover:underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-cyan-500 transition duration-500"
                                                         }
                                                     >
                                                         About
