@@ -105,7 +105,7 @@ const CalculatorForm = () => {
                                 Initial amount*
                             </label>
                             <div className="mt-1 flex">
-                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-200 bg-white text-gray-500 text-sm">
                                     {
                                         currencies.find((constcurrency) => {
                                             return (
@@ -122,7 +122,7 @@ const CalculatorForm = () => {
                                     required={true}
                                     name="initial-amount"
                                     id="initial-amount"
-                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-tr-md rounded-br-md"
+                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
                                     value={initialAmount!}
                                     onChange={(e) =>
                                         setInitialAmount(Number(e.target.value))
@@ -142,7 +142,7 @@ const CalculatorForm = () => {
                                 id="currency"
                                 name="currency"
                                 autoComplete="currency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={currency}
                                 onChange={(e) => {
                                     setCurrency(e.target.value);
@@ -164,7 +164,7 @@ const CalculatorForm = () => {
                                 Top-up amount
                             </label>
                             <div className="mt-1 flex">
-                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                <span className="inline-flex items-center px-3 rounded-tl-md rounded-bl-md border border-r-0 border-gray-200 bg-white text-gray-500 text-sm">
                                     {
                                         currencies.find((constcurrency) => {
                                             return (
@@ -179,7 +179,7 @@ const CalculatorForm = () => {
                                     min="0"
                                     name="top-up-amount"
                                     id="top-up-amount"
-                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-tr-md rounded-br-md"
+                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
                                     value={topUpAmount!}
                                     onChange={(e) => {
                                         setTopUpAmount(e.target.value);
@@ -198,7 +198,7 @@ const CalculatorForm = () => {
                             <select
                                 id="top-up-frequency"
                                 name="top-up-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={topUpFrequency}
                                 onChange={(e) => {
                                     setTopUpFrequency(e.target.value);
@@ -232,7 +232,7 @@ const CalculatorForm = () => {
                                 onChange={(e) => {
                                     setYearsSavedFor(Number(e.target.value));
                                 }}
-                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full  sm:text-sm border border-gray-200 rounded-md"
                             />
                         </div>
 
@@ -246,7 +246,7 @@ const CalculatorForm = () => {
                             <select
                                 id="compounding-frequency"
                                 name="compounding-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
                                 value={compoundingFrequency}
                                 onChange={(e) => {
                                     setCompoundingFrequency(e.target.value);
@@ -289,7 +289,7 @@ const CalculatorForm = () => {
                                                     );
                                                 }}
                                                 placeholder="Rate as a percentage eg. 8"
-                                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block grow shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block grow sm:text-sm border border-gray-200 rounded-md"
                                             />
                                             {/* Make individual components with show/hide logic */}
                                             {index === 0 ? (
