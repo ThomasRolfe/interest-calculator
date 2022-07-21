@@ -85,7 +85,6 @@ const CalculatorForm = ({ scrollToRef }: any) => {
         const response = await fetch("/api/calculator-form", options);
         const result = await response.json();
         setResults(result);
-        scrollToRef();
     };
 
     return (

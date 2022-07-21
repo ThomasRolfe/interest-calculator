@@ -1,5 +1,5 @@
 import Card from "./card";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
 import { Tab } from "@headlessui/react";
@@ -11,7 +11,12 @@ const PieChart = dynamic(() => import("./amCharts/PieChart"), { ssr: false });
 const LineChart = dynamic(() => import("./amCharts/LineChart"), { ssr: false });
 
 const CalculatorResults = () => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const { results } = useCalculatorResults();
+
+    useEffect(() => {
+        setSelectedIndex(0);
+    }, [results]);
 
     if (!results) {
         return <></>;
@@ -20,12 +25,16 @@ const CalculatorResults = () => {
     function classNames(...classes: string[]) {
         return classes.filter(Boolean).join(" ");
     }
+
     // TODO: if a tabbed item is selected and then gets deleted from calc, the tabs go blank. Need to reset the selected value
 
     return (
         <div className="grid grid-cols-12 gap-8 mt-12 md:mt-0">
             <Card className="col-span-12 xl:col-span-6 sm:rounded-md shadow-lg">
-                <Tab.Group>
+                <Tab.Group
+                    selectedIndex={selectedIndex}
+                    onChange={setSelectedIndex}
+                >
                     <Tab.List className="flex border-b border-gray-200">
                         {results.summary.map((interestRateSummary, index) => {
                             return (

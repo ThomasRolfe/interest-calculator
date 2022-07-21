@@ -8,13 +8,9 @@ const About: NextPage = () => {
         <>
             <Head>
                 <title>
-                    Interest Calculator - See how much you can make with
-                    compound interest
+                    About | Interest Calculator - How is compound interest
+                    calculated
                 </title>
-                <meta
-                    name="description"
-                    content="Compound Interest Calculator illustrates how much money can be made with the power of compound interest. Try out different deposits, top ups and interest rates and Interest Calculator will do the rest."
-                />
             </Head>
             <Layout>
                 <Container className="text-lg mx-auto">

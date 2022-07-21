@@ -15,13 +15,9 @@ const Home: NextPage = () => {
                     Interest Calculator - See how much you can make with
                     compound interest
                 </title>
-                <meta
-                    name="description"
-                    content="Compound Interest Calculator illustrates how much money can be made with the power of compound interest. Try out different deposits, top ups and interest rates and Interest Calculator will do the rest."
-                />
             </Head>
             <Layout>
-                <div className="  lg:-mt-16">
+                <div className="pt-8 md:pt-0  lg:-mt-16">
                     <Container className="">
                         <div
                             className={`grid grid-cols-12 gap-8 min-h-[100vh]`}
