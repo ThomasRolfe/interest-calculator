@@ -20,13 +20,13 @@ const Header = (props: any) => {
                                 <div className="flex items-center justify-between h-16">
                                     <div className="flex items-center w-full justify-between">
                                         <div className="flex-shrink-0">
-                                            <div className="flex h-8">
+                                            <div className="flex ">
                                                 <Link href="/">
                                                     <a className="hover:cursor-pointer">
                                                         <Image
                                                             src={logoCompact}
                                                             alt="Interest Calculator logo"
-                                                            height="30"
+                                                            height="50"
                                                             layout="intrinsic"
                                                         />
                                                     </a>
