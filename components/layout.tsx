@@ -38,7 +38,7 @@ const Layout = (props: any) => (
             />
             <meta
                 property="og:image"
-                content="https://interest-calculator.tomrolfe.co.uk/interest-calculator-og.png"
+                content="https://interest-calculator.tomrolfe.co.uk/interest-calculator-og-image.png"
             />
 
             <meta property="twitter:card" content="summary_large_image" />
@@ -56,7 +56,7 @@ const Layout = (props: any) => (
             />
             <meta
                 property="twitter:image"
-                content="https://interest-calculator.tomrolfe.co.uk/interest-calculator-og.png"
+                content="https://interest-calculator.tomrolfe.co.uk/interest-calculator-og-image.png"
             ></meta>
 
             <link
@@ -93,7 +93,7 @@ const Layout = (props: any) => (
                 href="https://use.typekit.net/hfj5pix.css"
             ></link>
         </Head>
-        <div className="background-gradient">
+        <div className="">
             <Header />
             <main className="">{props.children}</main>
             <Footer />

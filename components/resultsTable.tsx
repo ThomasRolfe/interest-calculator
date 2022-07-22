@@ -44,7 +44,7 @@ const ResultsTable = ({ results }: any) => {
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                     {paginatedArray.map((tableRow: any) => (
-                        <tr key={tableRow.year} className="hover:bg-slate-200">
+                        <tr key={tableRow.year} className="hover:bg-stone-50">
                             <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-brand-purple font-bold sm:pl-6">
                                 {tableRow.year}
                             </td>

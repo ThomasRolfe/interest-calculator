@@ -17,7 +17,8 @@ const Home: NextPage = () => {
                 </title>
             </Head>
             <Layout>
-                <div className="pt-8 md:pt-0  lg:-mt-16">
+                <div className="background-gradient"></div>
+                <div className="pt-8 md:pt-0  lg:-mt-16 ">
                     <Container className="">
                         <div
                             className={`grid grid-cols-12 gap-8 min-h-[100vh]`}
@@ -29,12 +30,12 @@ const Home: NextPage = () => {
                                         compound interest
                                     </span>
                                 </h1>
-                                <p className="mt-3 text-base text-slate-600 sm:mt-5 sm:text-xl">
+                                <p className="mt-3 text-base text-slate-700 sm:mt-5 sm:text-xl">
                                     The interest calculator helps illustrate how
                                     much money will be made with the power of
                                     compound interest.
                                 </p>
-                                <p className="mt-3 text-base text-slate-600 sm:mt-5 sm:text-xl">
+                                <p className="mt-3 text-base text-slate-700 sm:mt-5 sm:text-xl">
                                     {" "}
                                     Compare the differences over time with
                                     multiple interest rates at once.

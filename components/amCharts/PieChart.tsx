@@ -31,7 +31,7 @@ const PieChart = ({
 
         series
             .get("colors")
-            ?.set("colors", [am5.color("#311847"), am5.color("#5299D3")]);
+            ?.set("colors", [am5.color("#311847"), am5.color("#06b6d4")]);
 
         series.slices.template.states.remove("hover");
 

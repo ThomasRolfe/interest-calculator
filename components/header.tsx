@@ -10,7 +10,7 @@ const Header = (props: any) => {
     const router = useRouter();
     return (
         <div
-            className={`${props.className} backdrop-blur-lg backdrop-brightness-100   md:bg-white/70`}
+            className={`${props.className} backdrop-blur-lg backdrop-brightness-100   md:bg-white/50`}
         >
             <Container>
                 <Disclosure as="nav" className="">

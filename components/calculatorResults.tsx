@@ -43,7 +43,7 @@ const CalculatorResults = () => {
                                         <button
                                             className={classNames(
                                                 selected
-                                                    ? "border-brand-blue text-gray-800"
+                                                    ? "border-[#06b6d4] text-gray-800"
                                                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
                                                 "w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm",
 

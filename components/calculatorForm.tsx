@@ -100,7 +100,7 @@ const CalculatorForm = () => {
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="initial-amount"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
                                 Initial amount*
                             </label>
@@ -122,7 +122,7 @@ const CalculatorForm = () => {
                                     required={true}
                                     name="initial-amount"
                                     id="initial-amount"
-                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
+                                    className=" focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
                                     value={initialAmount!}
                                     onChange={(e) =>
                                         setInitialAmount(Number(e.target.value))
@@ -134,7 +134,7 @@ const CalculatorForm = () => {
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="currency"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
                                 Currency
                             </label>
@@ -142,7 +142,7 @@ const CalculatorForm = () => {
                                 id="currency"
                                 name="currency"
                                 autoComplete="currency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 sm:text-sm"
                                 value={currency}
                                 onChange={(e) => {
                                     setCurrency(e.target.value);
@@ -159,7 +159,7 @@ const CalculatorForm = () => {
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="top-up-amount"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
                                 Top-up amount
                             </label>
@@ -179,7 +179,7 @@ const CalculatorForm = () => {
                                     min="0"
                                     name="top-up-amount"
                                     id="top-up-amount"
-                                    className=" focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
+                                    className=" focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 block w-full sm:text-sm border border-gray-200 rounded-tr-md rounded-br-md"
                                     value={topUpAmount!}
                                     onChange={(e) => {
                                         setTopUpAmount(e.target.value);
@@ -191,14 +191,14 @@ const CalculatorForm = () => {
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="top-up-frequency"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
                                 Top-up frequency
                             </label>
                             <select
                                 id="top-up-frequency"
                                 name="top-up-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 sm:text-sm"
                                 value={topUpFrequency}
                                 onChange={(e) => {
                                     setTopUpFrequency(e.target.value);
@@ -216,7 +216,7 @@ const CalculatorForm = () => {
                         <div className="col-span-6">
                             <label
                                 htmlFor="years-saved-for"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
                                 Years saved for*
                             </label>
@@ -232,21 +232,21 @@ const CalculatorForm = () => {
                                 onChange={(e) => {
                                     setYearsSavedFor(Number(e.target.value));
                                 }}
-                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block w-full  sm:text-sm border border-gray-200 rounded-md"
+                                className="mt-1 focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 block w-full  sm:text-sm border border-gray-200 rounded-md"
                             />
                         </div>
 
                         <div className="col-span-6">
                             <label
                                 htmlFor="compounding-frequency"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium text-slate-900"
                             >
-                                Compounding frequency (?)
+                                Compounding frequency
                             </label>
                             <select
                                 id="compounding-frequency"
                                 name="compounding-frequency"
-                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 sm:text-sm"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md  focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 sm:text-sm"
                                 value={compoundingFrequency}
                                 onChange={(e) => {
                                     setCompoundingFrequency(e.target.value);
@@ -266,7 +266,7 @@ const CalculatorForm = () => {
                                     <>
                                         <label
                                             htmlFor={`interest-rate[${index}]`}
-                                            className={`block text-sm font-medium text-gray-700 ${
+                                            className={`block text-sm font-medium text-slate-900 ${
                                                 index > 0 ? "hidden" : ""
                                             }`}
                                         >
@@ -289,7 +289,7 @@ const CalculatorForm = () => {
                                                     );
                                                 }}
                                                 placeholder="Rate as a percentage eg. 8"
-                                                className="mt-1 focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50 block grow sm:text-sm border border-gray-200 rounded-md"
+                                                className="mt-1 focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50 block grow sm:text-sm border border-gray-200 rounded-md"
                                             />
                                             {/* Make individual components with show/hide logic */}
                                             {index === 0 ? (
@@ -321,11 +321,11 @@ const CalculatorForm = () => {
                                                 >
                                                     <button
                                                         type="button"
-                                                        className="ml-auto focus:ring-brand-blue focus:border-brand-blue focus:bg-slate-50"
+                                                        className="ml-auto focus:ring-cyan-500 focus:border-cyan-500 focus:bg-slate-50"
                                                         title="Remove interest rate"
                                                     >
                                                         <MinusCircleIcon
-                                                            className="h-5 w-5 text-red-600 "
+                                                            className="h-5 w-5 text-red-600 focus:ring-cyan-500 focus:border-cyan-500"
                                                             aria-hidden="true"
                                                         />
                                                     </button>
@@ -341,7 +341,7 @@ const CalculatorForm = () => {
                 <div className="px-4 py-3 text-center sm:px-6 backdrop-blur-lg backdrop-brightness-100 shadow-md shadow-slate-400/50 bg-white/50 ">
                     <button
                         type="submit"
-                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-sky-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
+                        className="inline-flex justify-center w-full py-2 px-4 mb-4  shadow-sm text-sm font-medium rounded-md text-white bg-cyan-500 hover:bg-sky-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
                     >
                         Calculate
                     </button>
