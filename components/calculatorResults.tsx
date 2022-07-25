@@ -1,6 +1,5 @@
 import Card from "./card";
-import { Fragment, useEffect, useState } from "react";
-
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
 import { Tab } from "@headlessui/react";
 import { SummaryPanel } from "./SummaryPanel";
@@ -11,12 +10,22 @@ const PieChart = dynamic(() => import("./amCharts/PieChart"), { ssr: false });
 const LineChart = dynamic(() => import("./amCharts/LineChart"), { ssr: false });
 
 const CalculatorResults = () => {
+    const calculatorResultsRef = useRef<HTMLDivElement>(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const { results } = useCalculatorResults();
 
     useEffect(() => {
         setSelectedIndex(0);
+        setTimeout(scrollToResults, 700);
     }, [results]);
+
+    const scrollToResults = () => {
+        if (calculatorResultsRef && calculatorResultsRef.current) {
+            calculatorResultsRef.current.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    };
 
     if (!results) {
         return <></>;
@@ -26,10 +35,11 @@ const CalculatorResults = () => {
         return classes.filter(Boolean).join(" ");
     }
 
-    // TODO: if a tabbed item is selected and then gets deleted from calc, the tabs go blank. Need to reset the selected value
-
     return (
-        <div className="grid grid-cols-12 gap-8 mt-12 md:mt-0">
+        <div
+            className="grid grid-cols-12 gap-8 mt-12 md:mt-0"
+            ref={calculatorResultsRef}
+        >
             <Card className="col-span-12 xl:col-span-6 sm:rounded-md ">
                 <Tab.Group
                     selectedIndex={selectedIndex}
