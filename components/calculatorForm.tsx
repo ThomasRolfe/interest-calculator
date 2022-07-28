@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useCalculatorResults } from "../context/CalculatorResultsContext";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/outline";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const currencies = [
     {
@@ -37,6 +38,7 @@ const CalculatorForm = () => {
     const [interestRates, setInterestRates] = useState<(string | number)[]>([
         "",
     ]);
+    const [ratesContainer] = useAutoAnimate<HTMLDivElement>();
 
     const handleInterestRateChange = (
         index: number,
@@ -260,7 +262,7 @@ const CalculatorForm = () => {
                                 </option>
                             </select>
                         </div>
-                        <div className="col-span-6">
+                        <div className="col-span-6" ref={ratesContainer}>
                             {interestRates.map((rate, index) => {
                                 return (
                                     <>
